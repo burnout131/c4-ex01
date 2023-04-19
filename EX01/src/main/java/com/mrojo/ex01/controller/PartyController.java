@@ -45,8 +45,8 @@ public class PartyController {
 	}
 
 	@GetMapping("/parties/juego/{juegoId}")
-	public List<Party> partyPorIdJuego(@PathVariable(name = "juegoId") Long juegoId) {
-		return partyService.partyPorIdJuego(juegoId);
+	public List<Party> findPartiesByJuegoId(@PathVariable(name = "juegoId") Long juegoId) {
+		return partyService.findPartiesByJuegoId(juegoId);
 	}
 
 	@PostMapping("/parties")

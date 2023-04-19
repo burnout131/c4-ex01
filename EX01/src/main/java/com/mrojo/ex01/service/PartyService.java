@@ -17,38 +17,31 @@ import com.mrojo.ex01.dto.Party;
  */
 
 @Service
-public class PartyService implements IPartyService {
+public class PartyService {
 
 	@Autowired
 	IPartyDAO iPartyDAO;
 
-	@Override
 	public List<Party> listarParties() {
 		return iPartyDAO.findAll();
 	}
 
-	@Override
-	public List<Party> partyPorIdJuego(Long juegoId) {
-		return iPartyDAO.findPartiesByJuego(juegoId);
-		//return null;
+	public List<Party> findPartiesByJuegoId(Long juegoId) {
+		return iPartyDAO.findPartiesByJuegoId(juegoId);
 	}
 
-	@Override
 	public Party guardarParty(Party party) {
 		return iPartyDAO.save(party);
 	}
 
-	@Override
 	public Party partyXID(Long id) {
 		return iPartyDAO.findById(id).get();
 	}
 
-	@Override
 	public Party actualizarParty(Party party) {
 		return iPartyDAO.save(party);
 	}
 
-	@Override
 	public void eliminarParty(Long id) {
 		iPartyDAO.deleteById(id);
 	}

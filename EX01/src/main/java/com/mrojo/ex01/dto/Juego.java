@@ -95,9 +95,6 @@ public class Juego {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Party")
-	/**
-	 * @return the party
-	 */
 	public List<Party> getParty() {
 		return party;
 	}
