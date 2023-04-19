@@ -36,6 +36,7 @@
 ### Clase Party: endpoints
 
 ## GET
+
 /api/parties --> muestra todas las parties
 /api/parties/{id} --> muestra la party con el id especificado
 /api/parties/juego/{juegoId} --> muestra las parties de un determinado juego
