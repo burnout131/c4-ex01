@@ -3,11 +3,18 @@
  */
 package com.mrojo.ex01.dto;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -19,11 +26,15 @@ import jakarta.persistence.Table;
 public class Juego {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@Column(name = "titulo")
 	private String titulo;
 	@Column(name = "descripcion")
 	private String descripcion;
+	
+	@OneToMany
+	@JoinColumn(name = "juegos_fk")
+	private List<Party> party;
 	
 	public Juego() {
 		
@@ -34,8 +45,7 @@ public class Juego {
 	 * @param titulo
 	 * @param descripcion
 	 */
-	public Juego(int id, String titulo, String descripcion) {
-		super();
+	public Juego(Long id, String titulo, String descripcion) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
@@ -44,14 +54,14 @@ public class Juego {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -81,6 +91,22 @@ public class Juego {
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Party")
+	/**
+	 * @return the party
+	 */
+	public List<Party> getParty() {
+		return party;
+	}
+
+	/**
+	 * @param party the party to set
+	 */
+	public void setParty(List<Party> party) {
+		this.party = party;
 	}
 
 	@Override

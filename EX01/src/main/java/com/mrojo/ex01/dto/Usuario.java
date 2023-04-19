@@ -27,7 +27,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "password")
@@ -49,8 +49,7 @@ public class Usuario {
 	 * @param password
 	 * @param email
 	 */
-	public Usuario(int id, String nombre, String password, String email, List<Party> party) {
-		super();
+	public Usuario(Long id, String nombre, String password, String email, List<Party> party) {
 		this.id = id;
 		this.nombre = nombre;
 		this.password = password;
@@ -61,14 +60,14 @@ public class Usuario {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

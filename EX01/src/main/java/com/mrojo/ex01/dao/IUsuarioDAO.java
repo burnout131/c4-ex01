@@ -11,6 +11,6 @@ import com.mrojo.ex01.dto.Usuario;
  * @author Marc
  *
  */
-public interface IUsuarioDAO extends JpaRepository<Usuario, Integer> {
+public interface IUsuarioDAO extends JpaRepository<Usuario, Long> {
 
 }

@@ -16,33 +16,28 @@ import com.mrojo.ex01.dto.Usuario;
  *
  */
 @Service
-public class UsuarioServiceImpl implements IUsuarioService {
+public class UsuarioService {
 
 	@Autowired
 	IUsuarioDAO iUsuarioDAO;
-
-	@Override
+	
 	public List<Usuario> listarUsuarios() {
 		return iUsuarioDAO.findAll();
 	}
 
-	@Override
 	public Usuario guardarUsuario(Usuario usuario) {
 		return iUsuarioDAO.save(usuario);
 	}
 
-	@Override
-	public Usuario usuarioXID(int id) {
+	public Usuario usuarioXID(Long id) {
 		return iUsuarioDAO.findById(id).get();
 	}
 
-	@Override
 	public Usuario actualizarPasswordUsuario(Usuario usuario) {
 		return iUsuarioDAO.save(usuario);
 	}
 
-	@Override
-	public void eliminarUsuario(int id) {
+	public void eliminarUsuario(Long id) {
 		iUsuarioDAO.deleteById(id);
 	}
 }

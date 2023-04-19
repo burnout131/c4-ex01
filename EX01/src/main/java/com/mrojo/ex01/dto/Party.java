@@ -18,26 +18,27 @@ import jakarta.persistence.Table;
  */
 
 @Entity
-@Table(name="party")
+@Table(name = "party")
 public class Party {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "descripcion")
 	private String descripcion;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "usuario")
 	Usuario usuario;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "juego_id")
+	@JoinColumn(name = "juego")
 	Juego juego;
 
 	public Party() {
-		super();
+
 	}
 
 	/**
@@ -47,8 +48,7 @@ public class Party {
 	 * @param usuario
 	 * @param juego
 	 */
-	public Party(int id, String nombre, String descripcion, Usuario usuario, Juego juego) {
-		super();
+	public Party(Long id, String nombre, String descripcion, Usuario usuario, Juego juego) {
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -59,14 +59,14 @@ public class Party {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -126,10 +126,4 @@ public class Party {
 		this.juego = juego;
 	}
 
-	@Override
-	public String toString() {
-		return "Party [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", usuario=" + usuario
-				+ ", juego=" + juego + "]";
-	}
-	
 }

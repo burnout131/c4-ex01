@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mrojo.ex01.dto.Usuario;
-import com.mrojo.ex01.service.UsuarioServiceImpl;
+import com.mrojo.ex01.service.UsuarioService;
 
 /**
  * @author Marc
@@ -27,7 +27,7 @@ import com.mrojo.ex01.service.UsuarioServiceImpl;
 public class UsuarioController {
 	
 	@Autowired
-	UsuarioServiceImpl usuarioServiceImpl;
+	UsuarioService usuarioServiceImpl;
 
 	@GetMapping("/usuarios")
 	public List<Usuario> listarUsuarios() {
@@ -36,12 +36,11 @@ public class UsuarioController {
 
 	@PostMapping("/usuarios")
 	public Usuario salvarUsuario(@RequestBody Usuario usuario) {
-
 		return usuarioServiceImpl.guardarUsuario(usuario);
 	}
 
 	@GetMapping("/usuarios/{id}")
-	public Usuario usuarioXID(@PathVariable(name = "id") int id) {
+	public Usuario usuarioXID(@PathVariable(name = "id") Long id) {
 
 		Usuario Usuario_xid = new Usuario();
 
@@ -53,7 +52,7 @@ public class UsuarioController {
 	}
 
 	@PutMapping("/usuarios/{id}")
-	public Usuario actualizarPasswordUsuario(@PathVariable(name = "id") int id, @RequestBody Usuario usuario) {
+	public Usuario actualizarPasswordUsuario(@PathVariable(name = "id") Long id, @RequestBody Usuario usuario) {
 
 		Usuario Usuario_seleccionado = new Usuario();
 		Usuario Usuario_actualizado = new Usuario();
@@ -71,7 +70,7 @@ public class UsuarioController {
 	}
 
 	@DeleteMapping("/usuarios/{id}")
-	public void eleiminarCurso(@PathVariable(name = "id") int id) {
+	public void eliminarUsuario(@PathVariable(name = "id") Long id) {
 		usuarioServiceImpl.eliminarUsuario(id);
 	}
 }

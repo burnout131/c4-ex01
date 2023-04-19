@@ -11,6 +11,6 @@ import com.mrojo.ex01.dto.Juego;
  * @author Marc
  *
  */
-public interface IJuegoDAO extends JpaRepository<Juego, Integer> {
+public interface IJuegoDAO extends JpaRepository<Juego, Long> {
 
 }

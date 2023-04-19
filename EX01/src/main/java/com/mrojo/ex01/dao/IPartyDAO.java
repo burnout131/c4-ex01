@@ -3,14 +3,14 @@
  */
 package com.mrojo.ex01.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.*;
 
 import com.mrojo.ex01.dto.Party;
 
-/**
- * @author Marc
- *
- */
-public interface IPartyDAO extends JpaRepository<Party, Integer> {
-
+public interface IPartyDAO extends JpaRepository<Party, Long> {
+	
+	public List<Party> findPartiesByJuego(Long gameId);
+	
 }
