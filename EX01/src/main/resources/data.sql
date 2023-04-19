@@ -1,6 +1,6 @@
-DROP table IF EXISTS usuario;
+/*DROP table IF EXISTS usuario;
 DROP table IF EXISTS juego;
-DROP table IF EXISTS party;
+DROP table IF EXISTS party;*/
 
 CREATE TABLE usuario(
 id int auto_increment primary key,
@@ -21,6 +21,6 @@ nombre varchar(250),
 descripcion varchar(250),
 usuario int,
 juego int,
-CONSTRAINT usuarios_fk FOREIGN KEY (usuario) REFERENCES usuarios (id),
-CONSTRAINT juegos_fk FOREIGN KEY (juego) REFERENCES juegos (id)
+CONSTRAINT usuarios_fk FOREIGN KEY (usuario) REFERENCES usuario (id),
+CONSTRAINT juegos_fk FOREIGN KEY (juego) REFERENCES juego (id)
 );
