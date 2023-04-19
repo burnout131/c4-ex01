@@ -1,5 +1,6 @@
 # c4-ex01
 
+
 ### Clase Usuario: endpoints
 
 ## GET
@@ -15,6 +16,7 @@
 ## DELETE
 /api/usuarios/{id} --> elimina el usuario con id especificado
 
+
 ### Clase Juego: endpoints
 
 ## GET
@@ -29,6 +31,7 @@
 
 ## DELETE
 /api/juegos/{id} --> elimina el juego con id especificado
+
 
 ### Clase Party: endpoints
 
