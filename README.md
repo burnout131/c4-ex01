@@ -5,6 +5,7 @@
 
 ## GET
 /api/usuarios --> muestra todos los usuarios
+
 /api/usuarios/{id} --> muestra el usuario con el id especificado
 
 ## POST
@@ -21,6 +22,7 @@
 
 ## GET
 /api/juegos --> muestra todos los juegos
+
 /api/juegos/{id} --> muestra el juego con el id especificado
 
 ## POST
@@ -38,7 +40,9 @@
 ## GET
 
 /api/parties --> muestra todas las parties
+
 /api/parties/{id} --> muestra la party con el id especificado
+
 /api/parties/juego/{juegoId} --> muestra las parties de un determinado juego
 
 ## POST
